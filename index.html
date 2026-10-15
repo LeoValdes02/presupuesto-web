@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Calculadora orientativa de presupuesto."
+    />
+
+    <title>Calculadora de presupuesto</title>
+  </head>
+
+  <body class="min-h-screen bg-night text-text-light antialiased">
+    <header
+      class="mx-auto w-full max-w-6xl px-5 pt-16 pb-12 sm:px-8 sm:pt-20 sm:pb-16"
+    >
+      <p
+        class="mb-4 text-sm font-semibold tracking-widest text-brand-cyan uppercase"
+      >
+        Calculadora de presupuesto
+      </p>
+
+      <h1
+        class="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl"
+      >
+        Calcula tu
+        <span class="text-gradient-brand"> presupuesto web </span>
+      </h1>
+
+      <p
+        class="mt-6 max-w-2xl text-base leading-relaxed text-muted-dark sm:text-lg"
+      >
+        Configura tu inversión y obtén una estimación clara, inmediata y sin
+        compromiso.
+      </p>
+    </header>
+
+    <main
+      class="mx-auto grid w-full max-w-6xl items-start gap-6 px-5 pb-20 sm:px-8 lg:grid-cols-2"
+    >
+      <!-- CONFIGURACIÓN -->
+      <section
+        aria-labelledby="calculator-title"
+        class="min-w-0 rounded-2xl border border-border-dark bg-night-surface p-5 sm:p-7"
+      >
+        <p class="mb-2 text-xs font-semibold tracking-widest text-brand-cyan">
+          01 / CONFIGURACIÓN
+        </p>
+
+        <h2 id="calculator-title" class="text-2xl font-bold tracking-tight">
+          Tu inversión
+        </h2>
+
+        <p class="mt-2 mb-6 text-sm text-muted-dark">
+          Configura los países y su inversión mensual.
+        </p>
+
+        <form id="budget-form" class="space-y-5">
+          <div id="countries-container" class="space-y-4"></div>
+
+          <div class="flex flex-wrap gap-3">
+            <button
+              id="add-country"
+              type="button"
+              class="min-h-11 rounded-xl border border-border-dark px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-night focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan"
+            >
+              + Añadir país
+            </button>
+
+            <button
+              type="submit"
+              class="min-h-11 rounded-xl bg-brand-indigo px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-brand-violet hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-cyan active:scale-[0.98]"
+            >
+              Calcular
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ESTIMACIÓN -->
+      <section
+        id="result-section"
+        aria-labelledby="result-title"
+        hidden
+        class="min-w-0 rounded-2xl border border-border-dark bg-night-surface p-5 sm:p-7"
+      >
+        <p class="mb-2 text-xs font-semibold tracking-widest text-brand-cyan">
+          02 / ESTIMACIÓN
+        </p>
+
+        <h2 id="result-title" class="text-2xl font-bold tracking-tight">
+          Tu presupuesto
+        </h2>
+
+        <!-- DATO PRINCIPAL -->
+        <div class="mt-6 rounded-xl border border-border-dark bg-night p-5">
+          <p class="text-sm text-muted-dark">Primer mes</p>
+
+          <p
+            id="result-first-month"
+            class="mt-2 break-words text-3xl font-bold tracking-tight text-brand-cyan tabular-nums sm:text-4xl"
+          >
+            —
+          </p>
+        </div>
+
+        <!-- RESUMEN ECONÓMICO -->
+        <dl class="mt-6 space-y-4">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <dt class="text-sm text-muted-dark">Inversión en anuncios</dt>
+
+            <dd id="result-investment" class="font-semibold tabular-nums">—</dd>
+          </div>
+
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <dt class="text-sm text-muted-dark">Gestión mensual</dt>
+
+            <dd id="result-management" class="font-semibold tabular-nums">—</dd>
+          </div>
+
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <dt class="text-sm text-muted-dark">Puesta en marcha</dt>
+
+            <dd id="result-setup" class="font-semibold tabular-nums">—</dd>
+          </div>
+
+          <div
+            class="flex flex-wrap items-baseline justify-between gap-2 border-t border-border-dark pt-4"
+          >
+            <dt class="font-semibold">Total mensual</dt>
+
+            <dd id="result-monthly" class="text-lg font-bold tabular-nums">
+              —
+            </dd>
+          </div>
+        </dl>
+
+        <!-- DESGLOSE -->
+        <div class="mt-8 border-t border-border-dark pt-6">
+          <h3 class="text-lg font-semibold">Desglose por país</h3>
+
+          <div id="country-breakdown" class="mt-4 space-y-3"></div>
+        </div>
+
+        <p
+          id="minimum-message"
+          aria-live="polite"
+          class="mt-5 text-sm leading-relaxed text-muted-dark"
+        ></p>
+      </section>
+    </main>
+
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
+</html>

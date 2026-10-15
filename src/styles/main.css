@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #0e1626;
+  --color-night-surface: #1b2335;
+
+  --color-ice: #ecf3ff;
+
+  --color-brand-cyan: #00c6e4;
+  --color-brand-indigo: #433df2;
+  --color-brand-violet: #9627f9;
+
+  --color-text-dark: #0e1626;
+  --color-text-light: #ffffff;
+
+  --color-muted-dark: #b8c0cf;
+  --color-border-dark: #30394b;
+}
+:root {
+  --gradient-brand: linear-gradient(
+    90deg,
+    #00c6e4 0%,
+    #433df2 50%,
+    #9627f9 100%
+  );
+
+  --gradient-cyan: linear-gradient(90deg, #00d0a8 0%, #00d0d8 100%);
+
+  --gradient-spectrum: linear-gradient(
+    90deg,
+    #60b8f8 0%,
+    #c078f8 52%,
+    #f860b0 100%
+  );
+}
+/* Gradiente reutilizable para los títulos */
+.text-gradient-brand {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+/* Bloques dinámicos de país */
+
+#countries-container fieldset {
+  @apply min-w-0 rounded-xl border
+         border-border-dark bg-night p-4;
+}
+
+#countries-container legend {
+  @apply px-1 text-sm font-semibold
+         text-brand-cyan;
+}
+
+#countries-container label {
+  @apply mt-3 block text-sm font-medium
+         text-muted-dark;
+}
+
+#countries-container input {
+  @apply mt-2 block min-h-11 w-full min-w-0
+         rounded-lg border border-border-dark
+         bg-night-surface px-4 py-3
+         text-base text-text-light
+         transition-colors duration-200;
+}
+
+#countries-container input:hover {
+  border-color: #64748b;
+}
+
+#countries-container input:focus-visible {
+  border-color: var(--color-brand-cyan);
+  outline: 2px solid var(--color-brand-cyan);
+  outline-offset: 2px;
+}
+
+#countries-container input:invalid:not(:placeholder-shown) {
+  border-color: #fb7185;
+}
+
+#countries-container input:focus-visible {
+  outline: 2px solid var(--color-brand-cyan);
+  outline-offset: 2px;
+}
+
+#countries-container fieldset > span {
+  @apply mt-2 block text-xs text-muted-dark;
+}
+
+#countries-container [data-remove-country] {
+  @apply mt-4 inline-flex min-h-11
+         items-center justify-center
+         rounded-lg border border-border-dark
+         px-4 py-2.5 text-sm font-medium
+         text-muted-dark
+         transition-colors duration-200;
+}
+
+#countries-container [data-remove-country]:hover:not(:disabled) {
+  @apply border-red-400/50
+         bg-red-400/10 text-red-300;
+}
+
+#countries-container [data-remove-country]:disabled {
+  @apply cursor-not-allowed opacity-40;
+}
+
+#countries-container [data-remove-country]:focus-visible {
+  outline: 2px solid var(--color-brand-cyan);
+  outline-offset: 2px;
+}
+
+/* Desglose generado por JavaScript */
+
+#country-breakdown article {
+  @apply rounded-xl border border-border-dark
+         bg-night p-4;
+}
+
+#country-breakdown article h4 {
+  @apply mb-2 text-base font-semibold
+         text-text-light;
+}
+
+#country-breakdown article p {
+  @apply mt-1 text-sm text-muted-dark;
+}
+
+/* Filas del desglose por país */
+
+#country-breakdown article dl > div {
+  @apply flex flex-wrap items-baseline
+         justify-between gap-2 py-1;
+}
+
+#country-breakdown article dt {
+  @apply text-sm text-muted-dark;
+}
+
+#country-breakdown article dd {
+  @apply text-sm font-semibold
+         text-text-light tabular-nums;
+}
+
+/* Aviso del honorario mínimo */
+
+#country-breakdown article .minimum-notice {
+  @apply mt-3 inline-block rounded-md
+         border border-brand-cyan/30
+         bg-brand-cyan/10 px-2.5 py-1
+         text-xs font-medium text-brand-cyan;
+}
